@@ -1,7 +1,7 @@
 package com.grupo.empresa.gestion_activos.pesistence;
 
 import com.grupo.empresa.gestion_activos.domain.dto.ActiveDto;
-import com.grupo.empresa.gestion_activos.domain.repository.IActiveService;
+import com.grupo.empresa.gestion_activos.domain.repository.IActiveRepository;
 import com.grupo.empresa.gestion_activos.pesistence.crud.ActivoRepository;
 import com.grupo.empresa.gestion_activos.pesistence.entity.ActivoEntity;
 import com.grupo.empresa.gestion_activos.pesistence.mapper.ActiveMapper;
@@ -13,14 +13,14 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class ActivoServiceImpl implements IActiveService {
+public class ActivoServiceImpl implements IActiveRepository {
 
-    private final ActiveMapper activeMapper;
     private final ActivoRepository activoRepository;
+    private final ActiveMapper activeMapper;
 
     @Override
     public List<ActiveDto> getAllActive() {
-        return activeMapper.mapListDto((List<ActivoEntity>) activoRepository.findAll());
+        return activeMapper.mapListDto((List<ActivoEntity>)activoRepository.findAll());
     }
 
     @Override
@@ -41,7 +41,7 @@ public class ActivoServiceImpl implements IActiveService {
 
     @Override
     public Optional<List<ActiveDto>> getActiveByType(String type){
-         return Optional.of(activeMapper.mapListDto(activoRepository.findByTipoEquals(type)));
+        return Optional.of(activeMapper.mapListDto(activoRepository.findByTipoEquals(type)));
     }
 
     @Override
@@ -52,26 +52,6 @@ public class ActivoServiceImpl implements IActiveService {
     @Override
     public Optional<List<ActiveDto>> getActiveByDate(Date date) {
         return Optional.of(activeMapper.mapListDto(activoRepository.findAllByFechaCompra(date)));
-    }
-
-    @Override
-    public List<ActiveDto> findAll() {
-        return null;
-    }
-
-    @Override
-    public Optional<ActiveDto> findById(Integer entityId) {
-        return Optional.empty();
-    }
-
-    @Override
-    public ActiveDto update(ActiveDto entityToUpdate) {
-        return null;
-    }
-
-    @Override
-    public void delete(Integer entity) {
-
     }
 
     /*public List<Active> getActiveByType(int type) {
@@ -97,5 +77,3 @@ public class ActivoServiceImpl implements IActiveService {
         }
        */
 }
-    
-

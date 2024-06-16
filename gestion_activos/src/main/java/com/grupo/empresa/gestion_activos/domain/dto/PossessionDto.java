@@ -10,7 +10,4 @@ import lombok.Setter;
 public class PossessionDto extends ActiveDto {
 
     private String location;
-
-
-
 }

@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class PersonaRepositoryImpl implements IEmployeRepository {
+public class EnpleadoServiceImpl implements IEmployeRepository {
 
     private final EmpleadoMapper empleadoMapper;
     private final EmpleadoRepository empleadoRepository;

@@ -12,28 +12,28 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class MuebleRepositoryImpl implements IFurnitureRepository {
+public class MuebleServiceImpl implements IFurnitureRepository {
 
     private final FurnitureMapper furnitureMapper;
-    private final InMuebleRepository muebleCRUDRepository;
+    private final InMuebleRepository inMuebleRepository;
 
     @Override
     public List<PossessionDto> getAllFurniture() {
-        return furnitureMapper.mapListDto((List<InmuebleEntity>) muebleCRUDRepository.findAll());
+        return furnitureMapper.mapListDto((List<InmuebleEntity>) inMuebleRepository.findAll());
     }
 
     @Override
     public Optional<PossessionDto> getFurniture(int id) {
-        return muebleCRUDRepository.findById(id).map(furnitureMapper::mapDto);
+        return inMuebleRepository.findById(id).map(furnitureMapper::mapDto);
     }
 
     @Override
     public PossessionDto saveFurniture(PossessionDto furniture) {
-        return furnitureMapper.mapDto(muebleCRUDRepository.save(furnitureMapper.mapEntity(furniture)));
+        return furnitureMapper.mapDto(inMuebleRepository.save(furnitureMapper.mapEntity(furniture)));
     }
 
     @Override
     public void deleteFurniture(int furnitureId) {
-        muebleCRUDRepository.deleteById(furnitureId);
+        inMuebleRepository.deleteById(furnitureId);
     }
 }

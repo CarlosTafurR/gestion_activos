@@ -12,14 +12,14 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class TipoRepositoryImpl implements ITypeRepository {
+public class TipoServiceImp implements ITypeRepository {
 
     private final TypeMapper typeMapper;
     private final TipoRepository tipoRepository;
 
     @Override
     public List<MaterialOfficeDto> getAllType() {
-        return  typeMapper.mapListDto((List<MaterialOficinaEntity>) tipoRepository.findAll());
+        return typeMapper.mapListDto((List<MaterialOficinaEntity>) tipoRepository.findAll());
     }
 
     @Override

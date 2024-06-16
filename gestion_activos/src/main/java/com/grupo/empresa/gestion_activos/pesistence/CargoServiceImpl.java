@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class CargoRepositoryImpl implements IPositionRepository {
+public class CargoServiceImpl implements IPositionRepository {
 
     private final PositionMapper positionMapper;
     private final CargoRepository cargoRepository;
@@ -24,7 +24,7 @@ public class CargoRepositoryImpl implements IPositionRepository {
 
     @Override
     public Optional<PositionDto> getPosition(int id) {
-        return cargoRepository.findById(id).map(Position -> positionMapper.mapDto(Position));
+        return cargoRepository.findById(id).map(positionMapper::mapDto);
     }
 
     @Override

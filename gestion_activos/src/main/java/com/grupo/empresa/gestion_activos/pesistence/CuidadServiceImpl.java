@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class CiudadRepositoryImpl implements ICityRepository {
+public class CuidadServiceImpl implements ICityRepository {
 
     private final CityMapper cityMapper;
     private final CiudadRepository ciudadRepository;
@@ -37,4 +37,3 @@ public class CiudadRepositoryImpl implements ICityRepository {
         ciudadRepository.deleteById(cityId);
     }
 }
-

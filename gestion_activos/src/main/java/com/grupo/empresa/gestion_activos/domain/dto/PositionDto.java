@@ -13,5 +13,4 @@ public class PositionDto {
     private String namePosition;
     private CityDto cityDto;
     private List<ActiveDto> activeDto;
-
 }

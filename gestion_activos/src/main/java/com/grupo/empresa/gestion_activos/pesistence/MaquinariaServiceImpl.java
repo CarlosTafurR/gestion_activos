@@ -12,14 +12,14 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class MaquinariaRepositoryImpl implements IMachineRepository {
+public class MaquinariaServiceImpl implements IMachineRepository {
 
     private final MachineMapper machineMapper;
     private final MaquinaRepository maquinaRepository;
 
     @Override
     public List<MachineDto> getAllMachine() {
-        return machineMapper.mapListDto( (List<MaquinariaEntity>) maquinaRepository.findAll());
+        return machineMapper.mapListDto((List<MaquinariaEntity>) maquinaRepository.findAll());
     }
 
     @Override
